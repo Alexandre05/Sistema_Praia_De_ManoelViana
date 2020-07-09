@@ -11,6 +11,7 @@ package br.com.sistemaPraia.telas;
  */
 import java.sql.*;
 import br.com.sistemaPraia.DAO.Conexao;
+
 import java.awt.HeadlessException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -25,6 +26,7 @@ public  class TelaCadastroAtentendes extends javax.swing.JInternalFrame {
     public TelaCadastroAtentendes() {
         initComponents();
          conexao = Conexao.Conector();
+       
     }
     // consultar usuario no banco
 private void consultar(){

@@ -10,6 +10,7 @@ import static java.lang.Thread.sleep;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import org.apache.hadoop.hive.ql.exec.TaskRunner;
+import org.opencv.core.Core;
 
 /**
  *
@@ -106,7 +107,7 @@ public class Splach extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(carrega)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(55, 55, 55))
         );
@@ -121,10 +122,7 @@ public class Splach extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(585, 475));
@@ -163,7 +161,7 @@ public class Splach extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         Threads tread1 = new Threads("#1", 100);
         Threads tread2 = new Threads("#2", 200);
         
@@ -187,6 +185,7 @@ public class Splach extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new Splach().setVisible(true);
        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

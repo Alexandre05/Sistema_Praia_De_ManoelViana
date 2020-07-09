@@ -8,13 +8,8 @@ package br.com.sistemaPraia.telas;
 import java.sql.*;
 import br.com.sistemaPraia.DAO.Conexao;
 import java.awt.Color;
-import static java.security.MessageDigest.getInstance;
 import javax.swing.JOptionPane;
-import br.com.sistemaPraia.telas.TelaCadastroAtentendes;
 import java.awt.HeadlessException;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.security.NoSuchAlgorithmException;
 import org.apache.commons.codec.digest.DigestUtils;
 /**
  *

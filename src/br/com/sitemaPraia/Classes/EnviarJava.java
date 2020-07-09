@@ -5,6 +5,7 @@
  */
 package br.com.sitemaPraia.Classes;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Properties;
@@ -26,13 +27,12 @@ import net.sf.jasperreports.engine.JasperPrint;
  * @author PC
  */
 public class EnviarJava {
-
     public void envioAnexo(String nomeRemetente, String assunto, String mensagem, String destinatario, String imagem) throws UnsupportedEncodingException {
         try {
             String host = "smtp.gmail.com";
-            String usuario = "";
-            String senha = "";
-            String remetente = "";
+            String usuario = "henri199@gmail.com";
+            String senha = "#eliasemana17";
+            String remetente = "henri199@gmail.com";
             
             boolean sessionDebug = true;
 

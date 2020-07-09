@@ -77,6 +77,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         regrasPDF = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        email = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Para Controlar os  Acampamentos Da  Praia de Manoel Viana");
@@ -281,6 +283,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem6);
 
+        email.setText("Email");
+        email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailActionPerformed(evt);
+            }
+        });
+        jMenu6.add(email);
+
+        jMenuItem3.setText("Camera Controle");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem3);
+
         Menu.add(jMenu6);
         jMenu6.getAccessibleContext().setAccessibleParent(this);
 
@@ -443,6 +461,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         re.setVisible(true);
         telaP.add(re);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+       EmailMAndar em = new EmailMAndar();
+        em.setVisible(true);
+        telaP.add(em);        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_emailActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        
+        Reconhecimento em = new Reconhecimento();
+        em.setVisible(true);
+        telaP.add(em);   
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 public void gerarPDF() throws FileNotFoundException, IOException{
 
 Document document = new Document();
@@ -495,10 +529,12 @@ Document document = new Document();
     private javax.swing.JMenuItem RelaCampista;
     public static javax.swing.JMenuItem RelatorioAcamp;
     public static javax.swing.JLabel atendente;
+    private javax.swing.JMenuItem email;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
