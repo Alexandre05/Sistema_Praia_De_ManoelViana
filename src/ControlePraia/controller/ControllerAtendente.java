@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ControlePraia.model.view.controller;
+package ControlePraia.controller;
 
 /**
  *
  * @author PC
  */
-public class ControllerAcampamento {
+public class ControllerAtendente {
     
 }
