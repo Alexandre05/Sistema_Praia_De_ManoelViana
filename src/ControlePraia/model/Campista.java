@@ -1,28 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ControlePraia.model;
 
 import java.util.ArrayList;
 
 /**
- *
+ * Entidade para tabela de tbcampista.
  * @author PC
  */
 public class Campista {
+
     private Integer IdCamp;
     private String NomeCamp;
-     private String endcamp;
-      private String CpfCamp;
-       private String TelefoneCamp;
-        private String PlacaCamp;
-         private String observacoes;
-          private String Embarca;
-           private String tipo;
-            private String perfil;
-            private ArrayList<Acampar> acampars = new ArrayList<Acampar>();
+    private String endcamp;
+    private String CpfCamp;
+    private String TelefoneCamp;
+    private String PlacaCamp;
+    private String observacoes;
+    private String Embarca;
+    private String tipo;
+    private String perfil;
+    private ArrayList<Acampamento> acampars = new ArrayList<Acampamento>();
 
     public Integer getIdCamp() {
         return IdCamp;
@@ -104,12 +100,12 @@ public class Campista {
         this.perfil = perfil;
     }
 
-    public ArrayList<Acampar> getAcampars() {
+    public ArrayList<Acampamento> getAcampars() {
         return acampars;
     }
 
-    public void setAcampars(ArrayList<Acampar> acampars) {
+    public void setAcampars(ArrayList<Acampamento> acampars) {
         this.acampars = acampars;
     }
-    
+
 }

@@ -45,7 +45,7 @@ public class AtendenteDAO {
             atendente.setEmail(rs.getString(4));
             atendente.setTelefone(rs.getNString(5));
             atendente.setCpf(rs.getString(6));
-            atendente.setPerfil(rs.getString(7));
+            atendente.setPerfil(EPerfilAtendente.valueOf(rs.getString(7)));
             atendente.setLogin(rs.getString(8));
             atendente.setSenha(rs.getString(9));
         }
@@ -74,7 +74,7 @@ public class AtendenteDAO {
         pst.setString(5, atendente.getEmail());
         pst.setString(6, atendente.getSenha());
         pst.setString(7, atendente.getLogin());
-        pst.setString(8, atendente.getPerfil());
+        pst.setString(8, atendente.getPerfil().getValor());
         
         return pst.executeUpdate() > 1;
         
