@@ -33,7 +33,7 @@ Connection conexao = null;
     }
 public void imprimirPorPerfil() {
 
-        String src = "Relatório_Por_Perfil_de_Clientes.jasper";
+        String src = "src\\Relatorios\\Relatório_Por_Perfil_de_Clientes.jasper";
         JasperPrint jasperPrint = null;
 
         int confirma = JOptionPane.showConfirmDialog(null, "Relatório Por Perfil?", "Atenção", JOptionPane.YES_NO_OPTION);

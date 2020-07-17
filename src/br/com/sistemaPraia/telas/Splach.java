@@ -54,6 +54,9 @@ public class Splach extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setForeground(new java.awt.Color(0, 204, 255));
+        jPanel1.setMaximumSize(null);
+        jPanel1.setMinimumSize(null);
+        jPanel1.setRequestFocusEnabled(false);
 
         jLabel1.setBackground(new java.awt.Color(102, 153, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N

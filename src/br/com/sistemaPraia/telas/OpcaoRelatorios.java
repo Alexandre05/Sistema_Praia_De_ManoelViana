@@ -46,7 +46,7 @@ public class OpcaoRelatorios extends javax.swing.JInternalFrame {
 
     public void imprimirPorData() {
 
-        String src = "RelatorioPorData.jasper";
+        String src = "src\\Relatorios\\Relatorio-Por-Data.jasper";
         JasperPrint jasperPrint = null;
 
         int confirma = JOptionPane.showConfirmDialog(null, "Relatório Por Data?", "Atenção", JOptionPane.YES_NO_OPTION);
@@ -104,7 +104,7 @@ public class OpcaoRelatorios extends javax.swing.JInternalFrame {
         jLabel1.setText("Informe o Período ");
 
         jToggleButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jToggleButton1.setText("Imprimir");
+        jToggleButton1.setText("Visualizar");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);

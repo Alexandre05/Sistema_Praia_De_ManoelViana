@@ -21,7 +21,7 @@ public class Conexao {
     // carrega o drive do banco sql
     String driver = "com.mysql.cj.jdbc.Driver";
     // Armazena 
-    String url="jdbc:mysql://localhost:3306/controlepraia?";
+    String url="jdbc:mysql://localhost:3306/controlepraia?useTimezone=true&serverTimezone=UTC";
     String user="root";
     String password="";
     // estabelece a concexão com o banco

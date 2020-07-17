@@ -13,6 +13,7 @@ import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
 import java.awt.Desktop;
+import java.beans.PropertyVetoException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -76,16 +77,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         regrasPDF = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
         email = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema Para Controlar os  Acampamentos Da  Praia de Manoel Viana");
         setBackground(new java.awt.Color(204, 204, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setModalExclusionType(null);
-        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -93,6 +93,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         telaP.setBackground(java.awt.SystemColor.controlLtHighlight);
+        telaP.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         telaP.setForeground(new java.awt.Color(204, 204, 255));
         telaP.setToolTipText("");
         telaP.setEnabled(false);
@@ -217,7 +218,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         RelaA.add(RelaCampista);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem1.setText("Relatórios de Acampamentos Por Data");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -227,6 +228,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         RelaA.add(jMenuItem1);
 
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem2.setText("Relatório Por Perfil De Clientes Praia");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,6 +242,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu3.setText("Ajuda");
         jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem4.setText("Sobre");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,6 +258,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jMenu6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        regrasPDF.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         regrasPDF.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         regrasPDF.setText("Regras");
         regrasPDF.addActionListener(new java.awt.event.ActionListener() {
@@ -274,15 +278,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem5);
 
-        jMenuItem6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem6.setText("Sair");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu6.add(jMenuItem6);
-
+        email.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         email.setText("Email");
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,6 +287,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu6.add(email);
 
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem3.setText("Camera Controle");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,6 +295,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu6.add(jMenuItem3);
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem6.setText("Sair");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem6);
 
         Menu.add(jMenu6);
         jMenu6.getAccessibleContext().setAccessibleParent(this);
@@ -315,12 +322,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(telaP, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(telaP, javax.swing.GroupLayout.PREFERRED_SIZE, 498, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(890, 605));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -376,7 +383,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
             try {
                 
-                JasperPrint imprimir= JasperFillManager.fillReport("Campistas.jasper",null,conexao);
+                JasperPrint imprimir= JasperFillManager.fillReport("src\\Relatorios\\Campistas.jasper",null,conexao);
                 // linha exibe relatorio 
                 
                 JasperViewer.viewReport(imprimir,false);
@@ -407,7 +414,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // imprimir relatorio com frame
         
             
-                String src = "Acampamentos.jasper";
+                String src = "src\\Relatorios\\Acampamentos.jasper";
         JasperPrint jasperPrint = null;
 
                 
@@ -465,7 +472,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
        EmailMAndar em = new EmailMAndar();
         em.setVisible(true);
-        telaP.add(em);        // TODO add your handling code here:
+        em.setSize(500, 500);
+        telaP.add(em);
+try {
+             em.setMaximum(true);
+                } catch (PropertyVetoException ex) {
+                
+                }        // TODO add your handling code here:
         
     }//GEN-LAST:event_emailActionPerformed
 
@@ -474,7 +487,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         Reconhecimento em = new Reconhecimento();
         em.setVisible(true);
-        telaP.add(em);   
+        telaP.add(em);
+        try {
+             em.setMaximum(true);
+                } catch (PropertyVetoException ex) {
+                
+                }
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 public void gerarPDF() throws FileNotFoundException, IOException{

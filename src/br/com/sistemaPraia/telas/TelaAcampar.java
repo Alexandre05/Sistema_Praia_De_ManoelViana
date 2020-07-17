@@ -60,18 +60,20 @@ public class TelaAcampar extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         Situ = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        AreaAcamp = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         DiasAcampado = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         VAcampamento = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         ValorDia = new javax.swing.JTextField();
         Calcular = new javax.swing.JButton();
         DSemana = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnExtra = new javax.swing.JButton();
+        se = new javax.swing.JLabel();
+        NomeArea = new javax.swing.JComboBox<>();
+        AreaAcamp = new javax.swing.JFormattedTextField();
         jPanel2 = new javax.swing.JPanel();
         PesquisaCamp = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -89,62 +91,108 @@ public class TelaAcampar extends javax.swing.JInternalFrame {
         BotaExcluir = new javax.swing.JButton();
         BotaImprime = new javax.swing.JButton();
 
+        setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("Tela Acampar");
         setPreferredSize(new java.awt.Dimension(640, 480));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setToolTipText("Informações do Acampamento");
         jPanel1.setName("Informações Acampamento"); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel1.setText("Nº Acampamento");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         Nuacamp.setEnabled(false);
+        jPanel1.add(Nuacamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 57, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel2.setText("Data");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 42, -1));
 
         DataAcamp.setEnabled(false);
+        jPanel1.add(DataAcamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 60, 90, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Situação Acamp");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 98, -1, -1));
 
+        Situ.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Situ.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Uso", "Reservador", "Manutenção" }));
+        Situ.setToolTipText("Situação do Acampamento");
         Situ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SituActionPerformed(evt);
             }
         });
+        jPanel1.add(Situ, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 95, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("*Tamanho Área");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 129, 111, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Dias Acampados");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 204, -1, -1));
 
-        jLabel8.setText("Valor Acampamentol");
+        DiasAcampado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        DiasAcampado.setToolTipText("Total de dias acampados");
+        DiasAcampado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DiasAcampadoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(DiasAcampado, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 201, 108, -1));
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Valor Dia");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 243, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel8.setText("Valor Total");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 20, 84, -1));
+
+        VAcampamento.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         VAcampamento.setText("0");
         VAcampamento.setEnabled(false);
+        VAcampamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VAcampamentoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(VAcampamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 77, -1));
 
-        jLabel9.setText("Valor Dia");
-
+        ValorDia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ValorDia.setText("0");
+        ValorDia.setToolTipText("Valor Extra do valor inicial do acampamento");
         ValorDia.setEnabled(false);
         ValorDia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ValorDiaKeyPressed(evt);
             }
         });
+        jPanel1.add(ValorDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 240, 68, -1));
 
         Calcular.setForeground(new java.awt.Color(51, 51, 51));
         Calcular.setText("Calcular");
+        Calcular.setToolTipText("Calcula o Acampamento");
+        Calcular.setName("C"); // NOI18N
         Calcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CalcularActionPerformed(evt);
             }
         });
+        jPanel1.add(Calcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 361, 90, -1));
+        Calcular.getAccessibleContext().setAccessibleName("");
 
+        DSemana.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         DSemana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo" }));
-        DSemana.setToolTipText("tt");
+        DSemana.setToolTipText("Dia da Semana, a ser calculado extra");
         DSemana.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -159,8 +207,11 @@ public class TelaAcampar extends javax.swing.JInternalFrame {
                 DSemanaActionPerformed(evt);
             }
         });
+        jPanel1.add(DSemana, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 289, 106, -1));
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("D.Semana");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 295, 74, -1));
 
         jButton1.setForeground(new java.awt.Color(255, 0, 0));
         jButton1.setText("Limpar");
@@ -169,134 +220,60 @@ public class TelaAcampar extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 361, 82, -1));
 
         btnExtra.setText("Extra");
+        btnExtra.setToolTipText("Calcular o Valor Extra. EX 30 reais do acampamento, mais 1 do dia. Total 31 reias");
         btnExtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExtraActionPerformed(evt);
             }
         });
+        jPanel1.add(btnExtra, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 361, 78, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addComponent(ValorDia, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(29, 29, 29)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(AreaAcamp, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                                .addComponent(DiasAcampado))
-                            .addComponent(Situ, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DSemana, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(VAcampamento, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(Nuacamp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53))
-                            .addComponent(DataAcamp, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(Calcular)
-                .addGap(18, 18, 18)
-                .addComponent(btnExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(14, 14, 14))
-        );
+        se.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        se.setText("Nome Área");
+        jPanel1.add(se, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 163, -1, -1));
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {Calcular, btnExtra, jButton1});
+        NomeArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        NomeArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Área 1", "Área 2", "Área 3" }));
+        NomeArea.setToolTipText("Nome da àrea dos Acampamentos ");
+        NomeArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NomeAreaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(NomeArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 160, 108, -1));
 
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Nuacamp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DataAcamp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(Situ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(AreaAcamp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(DiasAcampado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(ValorDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(DSemana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(VAcampamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Calcular)
-                    .addComponent(jButton1)
-                    .addComponent(btnExtra))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        AreaAcamp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        AreaAcamp.setToolTipText("Tamanho da Área do Acampamento, pode ser de 20² até 36² metros");
+        AreaAcamp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AreaAcampActionPerformed(evt);
+            }
+        });
+        jPanel1.add(AreaAcamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 129, 105, -1));
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {Calcular, btnExtra, jButton1});
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Campista", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-
+        PesquisaCamp.setToolTipText("Pesquisa Campista");
         PesquisaCamp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 PesquisaCampKeyReleased(evt);
             }
         });
+        jPanel2.add(PesquisaCamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 34, 220, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel4.setText("Pesquisar ");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 37, -1, -1));
 
+        TblAcamp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TblAcamp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -306,6 +283,7 @@ public class TelaAcampar extends javax.swing.JInternalFrame {
                 "Nome", "CPF", "Fone", "ID", "OB"
             }
         ));
+        TblAcamp.setToolTipText("Informações do campista");
         TblAcamp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TblAcampMouseClicked(evt);
@@ -313,16 +291,23 @@ public class TelaAcampar extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(TblAcamp);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 810, 161));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel5.setText("*ID");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, -1, -1));
 
         IdCamp.setEnabled(false);
+        jPanel2.add(IdCamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 54, -1));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel10.setText("Observações");
 
         OB.setColumns(20);
         OB.setRows(5);
+        OB.setToolTipText("Observações do acampamento");
         jScrollPane2.setViewportView(OB);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -332,62 +317,29 @@ public class TelaAcampar extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(320, 320, 320)
+                        .addComponent(jLabel10))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jLabel10)))
-                .addContainerGap(123, Short.MAX_VALUE))
+                        .addGap(128, 128, 128)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PesquisaCamp, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(IdCamp, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PesquisaCamp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(IdCamp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 820, -1));
 
         BotaoSalvar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BotaoSalvar.setForeground(new java.awt.Color(51, 51, 51));
         BotaoSalvar.setText("Salvar");
+        BotaoSalvar.setToolTipText("Salva a ordem de acampameto");
         BotaoSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotaoSalvarMouseClicked(evt);
@@ -401,6 +353,7 @@ public class TelaAcampar extends javax.swing.JInternalFrame {
 
         BotaPesquisar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BotaPesquisar.setText("Pesquisar");
+        BotaPesquisar.setToolTipText("Pesquisa uma ordem de acampamento");
         BotaPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaPesquisarActionPerformed(evt);
@@ -436,50 +389,41 @@ public class TelaAcampar extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BotaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BotaPesquisar)
-                .addGap(18, 18, 18)
-                .addComponent(BotaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BotaExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BotaImprime, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(BotaoSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(65, 65, 65)
+                        .addComponent(BotaPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(33, 33, 33)
+                        .addComponent(BotaEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotaExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(35, 35, 35)
+                        .addComponent(BotaImprime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {BotaEditar, BotaExcluir, BotaImprime, BotaPesquisar, BotaoSalvar});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotaoSalvar)
-                    .addComponent(BotaPesquisar)
-                    .addComponent(BotaEditar)
-                    .addComponent(BotaExcluir)
-                    .addComponent(BotaImprime))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(BotaoSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotaPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotaEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotaExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotaImprime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {BotaEditar, BotaExcluir, BotaImprime, BotaPesquisar, BotaoSalvar});
-
-        jPanel2.getAccessibleContext().setAccessibleName("Pesquisa Campista");
-
-        setBounds(0, 0, 716, 448);
+        setBounds(0, 0, 1265, 533);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SituActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SituActionPerformed
@@ -508,6 +452,8 @@ public class TelaAcampar extends javax.swing.JInternalFrame {
     private void CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularActionPerformed
         // TODO add your handling code here:
         CalcularAC();
+        
+        //Calcular.setToolTipText("Calcular o Valor do Acampamento");
     }//GEN-LAST:event_CalcularActionPerformed
 
     private void BotaPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaPesquisarActionPerformed
@@ -631,6 +577,22 @@ btnExtra.setEnabled(false);
 
     }//GEN-LAST:event_ValorDiaKeyPressed
 
+    private void VAcampamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VAcampamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VAcampamentoActionPerformed
+
+    private void DiasAcampadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiasAcampadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DiasAcampadoActionPerformed
+
+    private void NomeAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeAreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NomeAreaActionPerformed
+
+    private void AreaAcampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AreaAcampActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AreaAcampActionPerformed
+
     private void PesquisarCampistas() {
         String sql = " select idCamp as ID, NomeCamp as Nome, CpfCamp as CPF, TelefoneCamp as Fone,\n"
                 + "observacoes as OB from tbcampista where NomeCamp like ?";
@@ -658,19 +620,20 @@ btnExtra.setEnabled(false);
 
 // cadastrar acampamento, emitir Ordem pra acampar
     private void EmitirAcampamento() {
-        String sql = "insert into tbacampar(Situacao,AreaAcamp,Atendente,valor,DiasAcamp,ObsAcamp,Idcamp) values(?,?,?,?,?,?,?)";
+        String sql = "insert into tbacampar(Situacao,AreaAcamp,NomeArea, Atendente,valor,DiasAcamp,ObsAcamp,Idcamp) values(?,?,?,?,?,?,?,?)";
 
         try {
 
             pst = conexao.prepareCall(sql);
             pst.setString(1, Situ.getSelectedItem().toString());
             pst.setString(2, AreaAcamp.getText());
-            pst.setString(3, TelaPrincipal.atendente.getText());
-            pst.setDouble(4, Double.parseDouble(VAcampamento.getText().replace(",", ".")));
-            pst.setString(5, DiasAcampado.getText());
-            pst.setString(6, OB.getText());
+            pst.setString(3, NomeArea.getSelectedItem().toString());
+            pst.setString(4, TelaPrincipal.atendente.getText());
+            pst.setDouble(5, Double.parseDouble(VAcampamento.getText().replace(",", ".")));
+            pst.setString(6, DiasAcampado.getText());
+            pst.setString(7, OB.getText());
 
-            pst.setString(7, IdCamp.getText());
+            pst.setString(8, IdCamp.getText());
   
             if (((IdCamp.getText().isEmpty() || (AreaAcamp.getText().isEmpty())))) {
                
@@ -713,6 +676,7 @@ btnExtra.setEnabled(false);
                     Nuacamp.setText(null);
                     Situ.setSelectedItem(null);
                     AreaAcamp.setText(null);
+                    NomeArea.setSelectedItem(null);
                ValorDia.setText(null);
                     DiasAcampado.setText(null);
                     //TelaPrincipal.atendente.setText(null);
@@ -745,12 +709,15 @@ btnExtra.setEnabled(false);
                 DataAcamp.setText(rs.getString(2));
                 Situ.setSelectedItem(rs.getString(3));
                 AreaAcamp.setText(rs.getString(4));
-                DiasAcampado.setText(rs.getString(7));
-                VAcampamento.setText(rs.getString(6));
+                NomeArea.setSelectedItem(5);
+                
+                 VAcampamento.setText(rs.getString(7));
+                DiasAcampado.setText(rs.getString(8));
+               
 
-                OB.setText(rs.getString(8));
+                OB.setText(rs.getString(9));
 
-                IdCamp.setText(rs.getString(9));
+                IdCamp.setText(rs.getString(10));
                 /// evitando problemas
                 BotaoSalvar.setEnabled(false);
                 PesquisaCamp.setEditable(false);
@@ -774,18 +741,19 @@ btnExtra.setEnabled(false);
 
     private void AlterarOA() {
 
-        String sql = "update tbacampar set Situacao=?,AreaAcamp=?,valor=?,DiasAcamp=?,ObsAcamp=? where OrA=?";
+        String sql = "update tbacampar set Situacao=?,AreaAcamp=?,NomeArea=?,valor=?,DiasAcamp=?,ObsAcamp=? where OrA=?";
 
         try {
 
             pst = conexao.prepareCall(sql);
             pst.setString(1, Situ.getSelectedItem().toString());
             pst.setString(2, AreaAcamp.getText());
-            pst.setDouble(3, Double.parseDouble(VAcampamento.getText().replace(",", ".")));
-            pst.setString(4, DiasAcampado.getText());
+            pst.setString(3, NomeArea.getSelectedItem().toString());
+            pst.setDouble(4, Double.parseDouble(VAcampamento.getText().replace(",", ".")));
+            pst.setString(5, DiasAcampado.getText());
 
-            pst.setString(5, OB.getText());
-            pst.setString(6, Nuacamp.getText());
+            pst.setString(6, OB.getText());
+            pst.setString(7, Nuacamp.getText());
 
             if (((IdCamp.getText().isEmpty() || (AreaAcamp.getText().isEmpty())))) {
                 JOptionPane.showMessageDialog(null, " Todos os Campos Marcados com *, são Obrigatórios");
@@ -799,6 +767,7 @@ btnExtra.setEnabled(false);
                     DataAcamp.setText("");
                     Situ.setSelectedItem("");
                     AreaAcamp.setText("");
+                    NomeArea.setSelectedItem("");
                    ValorDia.setText("");
                     DiasAcampado.setText("");
                     //TelaPrincipal.atendente.setText(null);
@@ -834,6 +803,7 @@ btnExtra.setEnabled(false);
                     DataAcamp.setText(null);
                     Situ.setSelectedItem(null);
                     AreaAcamp.setText(null);
+                    NomeArea.setSelectedItem(null);
                ValorDia.setText(null);
                     DiasAcampado.setText(null);
                     //TelaPrincipal.atendente.setText(null);
@@ -918,7 +888,7 @@ btnExtra.setEnabled(false);
     }
 
     private void ImprimirORA() {
-        String src = "Acampamentos.jasper";
+        String src = "src\\Relatorios\\Acampamentos.jasper";
         JasperPrint jasperPrint = null;
 
         int confirma = JOptionPane.showConfirmDialog(null, "Confirma Emissão Desta Ordem de Acampamento?", "Atenção", JOptionPane.YES_NO_OPTION);
@@ -964,7 +934,7 @@ VAcampamento.setText(String.valueOf(""+Total));
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AreaAcamp;
+    private javax.swing.JFormattedTextField AreaAcamp;
     private javax.swing.JButton BotaEditar;
     public static javax.swing.JButton BotaExcluir;
     private javax.swing.JButton BotaImprime;
@@ -975,6 +945,7 @@ VAcampamento.setText(String.valueOf(""+Total));
     private javax.swing.JTextField DataAcamp;
     private javax.swing.JTextField DiasAcampado;
     private javax.swing.JTextField IdCamp;
+    private javax.swing.JComboBox<String> NomeArea;
     private javax.swing.JTextField Nuacamp;
     private javax.swing.JTextArea OB;
     private javax.swing.JTextField PesquisaCamp;
@@ -1001,5 +972,6 @@ VAcampamento.setText(String.valueOf(""+Total));
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel se;
     // End of variables declaration//GEN-END:variables
 }

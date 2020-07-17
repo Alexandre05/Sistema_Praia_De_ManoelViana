@@ -1,22 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.sistemaPraia.telas;
 
-import br.com.sistemaPraia.DAO.Conexao;
 import static br.com.sistemaPraia.telas.TelaPrincipal.jPanel1;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import org.opencv.core.Core;
+import org.bytedeco.javacv.FrameGrabber;
+import org.bytedeco.javacv.OpenCVFrameConverter;
+import org.bytedeco.javacv.OpenCVFrameGrabber;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
-import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.videoio.VideoCapture;
 
@@ -24,80 +21,54 @@ import org.opencv.videoio.VideoCapture;
  *
  * @author PC
  */
-public class Reconhecimento extends javax.swing.JInternalFrame{
+public class Reconhecimento extends javax.swing.JInternalFrame {
 
-   private DaemonThread trend = null;
+    private DaemonThread trend = null;
     int count = 0;
-    VideoCapture webSource= null ;
+    VideoCapture webSource = null;
     Mat frame = new Mat();
     MatOfByte mem = new MatOfByte();
-    
-    
-     public Reconhecimento() {
-        
-        initComponents();
-     }
-    
-    class DaemonThread implements Runnable{
-    
-    protected volatile boolean runnable = false;
 
-    @Override
-   
+    class DaemonThread implements Runnable {
 
-    public  void run()
-    {
-        synchronized(this)
-        {
-            while(runnable)
-            {
-                if(webSource.grab())
-                {
-		    	try
-                        {
+        protected volatile boolean runnable = false;
+
+        @Override
+
+        public void run() {
+            synchronized (this) {
+                while (runnable) {
+                    if (webSource.grab()) {
+                        try {
                             webSource.retrieve(frame);
-			Imgcodecs.imencode(".bmp", frame, mem);
-			    Image im = ImageIO.read(new ByteArrayInputStream(mem.toArray()));
 
-			    BufferedImage buff = (BufferedImage) im;
-			    Graphics g=jPanel1.getGraphics();
+                            Imgcodecs.imencode(".bmp", frame, mem);
+                            Image im = ImageIO.read(new ByteArrayInputStream(mem.toArray()));
 
-			   if (g.drawImage(buff, 0, 0, 200, 200, 0, 0, buff.getWidth(), buff.getHeight(), null))
-			    
-			    if(runnable == false)
-                            {
-			    	System.out.println("Going to wait()");
-			    	this.wait();
-			    }
-			 }
-			 catch(IOException | InterruptedException ex)
-                         {
-			    System.out.println("Error");
-                         }
-                }       }
-            
-        
-        
-   
-      
-   
+                            BufferedImage buff = (BufferedImage) im;
+                            Graphics g = paneil.getGraphics();
 
-   /////////////////////////////////////////////////////////
-   
-   // add this line to main method
-   
-         // load native library of opencv
-       
-        } 
-        
-        
+                            if (g.drawImage(buff, 0, 0, getWidth(), getHeight() - 150, 0, 0, buff.getWidth(), buff.getHeight(), null)) {
+                                if (runnable == false) {
+                                    System.out.println("Going to wait()");
+                                    this.wait();
+                                }
+                            }
+                        } catch (Exception ex) {
+                            System.out.println("Error");
+                        }
+                    }
+                }
+            }
         }
-    
-   
-        }
-    
-     
-     
+
+    }
+
+    public Reconhecimento() {
+
+        initComponents();
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -119,13 +90,18 @@ public class Reconhecimento extends javax.swing.JInternalFrame{
         );
         paneilLayout.setVerticalGroup(
             paneilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
+            .addGap(0, 286, Short.MAX_VALUE)
         );
 
         inicio.setText("Inicio");
         inicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioActionPerformed(evt);
+            }
+        });
+        inicio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inicioKeyReleased(evt);
             }
         });
 
@@ -145,16 +121,15 @@ public class Reconhecimento extends javax.swing.JInternalFrame{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(paneil, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(162, 162, 162)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
                 .addComponent(pause)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addGap(75, 75, 75))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(paneil, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {inicio, pause});
@@ -163,12 +138,12 @@ public class Reconhecimento extends javax.swing.JInternalFrame{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(paneil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(paneil, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pause)
                     .addComponent(inicio))
-                .addGap(0, 41, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {inicio, pause});
@@ -176,34 +151,30 @@ public class Reconhecimento extends javax.swing.JInternalFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
-        // TODO add your handling code here:
-        
-        webSource  = new VideoCapture();
-        
-  trend = new DaemonThread();
-  
-            Thread t = new Thread(trend);
-            t.setDaemon(true);
-            
-            trend.runnable = true;
-            t.start();
-			 inicio.setEnabled(false);  //start button
-            pause.setEnabled(true);  // stop button
-    }//GEN-LAST:event_inicioActionPerformed
-
     private void pauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseActionPerformed
-        // TODO add your handling code here:
-        
         trend.runnable = false;
-            pause.setEnabled(false);   
-            inicio.setEnabled(true);
-            
-            webSource.release();
+        pause.setEnabled(false);
+        inicio.setEnabled(true);
+
+        webSource.release();
     }//GEN-LAST:event_pauseActionPerformed
 
-    
-   
+    private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
+        
+        OpenCVFrameConverter.ToMat converteMat = new OpenCVFrameConverter.ToMat();
+        OpenCVFrameGrabber camera = new OpenCVFrameGrabber(0);
+        try {
+            camera.start();
+        } catch (FrameGrabber.Exception ex) {
+            Logger.getLogger(Reconhecimento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        // stop button
+    }//GEN-LAST:event_inicioActionPerformed
+
+    private void inicioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inicioKeyReleased
+        // TODO add your handling code here:
+         
+    }//GEN-LAST:event_inicioKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -214,11 +185,4 @@ public class Reconhecimento extends javax.swing.JInternalFrame{
     private javax.swing.JButton pause;
     // End of variables declaration//GEN-END:variables
 
-   
-    
-
-
 }
-
-
-
