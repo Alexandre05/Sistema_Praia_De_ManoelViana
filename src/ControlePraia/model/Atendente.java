@@ -1,29 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ControlePraia.model;
 
 import java.util.ArrayList;
 
 /**
- *
+ * Entidade da tabela tblatendente.
  * @author PC
  */
 public class Atendente {
-    
+
     private Integer IdAte;
     private String NomeAte;
     private String endade;
-     private String Telefone;
+    private String Telefone;
     private String Cpf;
     private String email;
     private String senha;
-     private String login;
-      private String perfil;
-      private ArrayList<Campista> campistas = new ArrayList<Campista>();
-      private ArrayList<Acampar> acampars = new ArrayList<Acampar>();
+    private String login;
+    private EPerfilAtendente perfil;
+    private ArrayList<Campista> campistas = new ArrayList<Campista>();
+    private ArrayList<Acampamento> acampars = new ArrayList<Acampamento>();
 
     public Integer getIdAte() {
         return IdAte;
@@ -89,11 +84,11 @@ public class Atendente {
         this.login = login;
     }
 
-    public String getPerfil() {
+    public EPerfilAtendente getPerfil() {
         return perfil;
     }
 
-    public void setPerfil(String perfil) {
+    public void setPerfil(EPerfilAtendente perfil) {
         this.perfil = perfil;
     }
 
@@ -105,12 +100,12 @@ public class Atendente {
         this.campistas = campistas;
     }
 
-    public ArrayList<Acampar> getAcampars() {
+    public ArrayList<Acampamento> getAcampars() {
         return acampars;
     }
 
-    public void setAcampars(ArrayList<Acampar> acampars) {
+    public void setAcampars(ArrayList<Acampamento> acampars) {
         this.acampars = acampars;
     }
-    
+
 }
